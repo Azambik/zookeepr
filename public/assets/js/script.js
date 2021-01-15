@@ -28,9 +28,10 @@ const handleAnimalFormSubmit = event => {
 
   //sending data to server
   fetch('/api/animals', {
-    method: 'post',
+    method: 'POST',
     headers: {
-      Accept: 'application/json'
+      Accept: 'application/json',
+      'content-type': 'application/json'
     },
     body: JSON.stringify(animalObject)
   })
@@ -40,7 +41,7 @@ const handleAnimalFormSubmit = event => {
       }
       alert('Error: ' + response.statusText);
     })
-     .then(pstResponse => {
+     .then(postResponse => {
        console.log(postResponse);
        alert('thank you for adding an animal!');
      });
